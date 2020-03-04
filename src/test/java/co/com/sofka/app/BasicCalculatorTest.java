@@ -16,64 +16,68 @@ import org.junit.jupiter.params.provider.CsvSource;
 public class BasicCalculatorTest {
     private final BasicCalculator basicCalculator = new BasicCalculator();
 
-    @DisplayName("Testing several sums")
-    @ParameterizedTest(name = "{0} + {1} = {2}")
-    @CsvSource({
-            "0,    1,   1",
-            "1,    2,   3",
-            "49,  51, 100",
-            "1,  100, 101"
-    })
-    public void sum(Long first, Long second, Long expectedResult) {
+    @Test
+    @DisplayName("Testing sum: 1+1=2")
+    public void sum() {
         // Arrange
         Long number1 = 1L;
         Long number2 = 1L;
-        Long expectedValue = 20L;
-        
+        Long expectedValue = 2L;
+
         // Act
         Long result = basicCalculator.sum(number1, number2);
 
         // Assert
-
-        Assertions.assertEquals(expectedValue, result);
-
-
-}
+        assertEquals(expectedValue, result);
+    }
 
 
-    @ParameterizedTest(name = "{0} / {1} = {2}")
-    @CsvSource({
-            "2,    1,   2",
-            "10,    5,   2",
-            "20,  10, 2",
-            "40,  20, 2"
-    })
-    @DisplayName("valido divicion")
-    public void divideValidation(Long first, Long second, Long expectedResult)
-{
+    @Test
+    @DisplayName("Testing sum: 1-1=0")
+    public void resta() {
+        // Arrange
+        Long number1 = 1L;
+        Long number2 = 1L;
+        Long expectedValue = 0L;
 
-    Long expectedValue =basicCalculator.div(first,second);
+        // Act
+        Long result = basicCalculator.resta(number1, number2);
 
-    Assertions.assertEquals(0,expectedResult);
+        // Assert
+        assertEquals(expectedValue, result);
+    }
 
-}
+    @Test
+    @DisplayName("Testing sum: 5x5=25")
+    public void multiplica() {
+        // Arrange
+        Long number1 = 5L;
+        Long number2 = 5L;
+        Long expectedValue = 25L;
 
-    @ParameterizedTest(name = "{0} / {1}")
-    @CsvSource({
-            "0,    0, ",
-            "4,    0, "
+        // Act
+        Long result = basicCalculator.multiplica(number1, number2);
 
-    })
-    @DisplayName("valido divicion por cero")
-    public void divideValidationByZero(Long first, Long second)
-    {
+        // Assert
+        assertEquals(expectedValue, result);
+    }
+
+    @Test
+    @DisplayName("Testing sum: 25/5=5")
+    public void div() {
+        // Arrange
+        Long number1 = 25L;
+        Long number2 = 5L;
+        Long expectedValue = 5L;
+
+        // Act
+        Long result = basicCalculator.divide(number1, number2);
+
+        // Assert
+        assertEquals(expectedValue, result);
+    }
 
 
-        Assertions.assertThrows(IllegalAccessError.class,()->{
-                            basicCalculator.div(first,second);
-    });
-
-}
 
     }
 

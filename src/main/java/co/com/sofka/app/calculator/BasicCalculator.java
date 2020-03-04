@@ -13,10 +13,25 @@ public class BasicCalculator {
 	    return number1 + number2;
 	}
 
-	public Long div(Long number1, Long number2)  {
-if (number2==0) {
-	throw new IllegalArgumentException();
-}
-		return number1/number2;
+	public Long resta(Long number1,Long number2)
+	{
+		logger.info("restando {} - {}", number1, number2 +"");
+		return number1 - number2;
+
 	}
+	public Long multiplica(Long number1,Long number2)
+	{
+		logger.info("restando {} x {}", number1, number2 +"");
+		return number1 * number2;
+
+	}
+	public Long divide(Long number1,Long number2)
+	{
+		logger.info("divide {} / {}", number1, number2 +"");
+		return number1 / number2;
+
+	}
+
+
+
 }
